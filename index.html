@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="usuarioLog">
+        <div id="usuario">logueadon't</div>
+        <div><button id="botonEntrar">Entrar</button></div>
+    </div>
+    <div class="mensajes">
+        <div id ="contenidoWeb"></div>
+        <form id = "formulario">
+            <input id = "texto" type="text" placeholder="Ingresar mensaje" autocomplete="off">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <div class="accionesOff">
+        <input id = "deshabilitarAcciones" type="checkbox">
+        <label for="deshabilitarAcciones">Activar/desactivar acciones</label>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
