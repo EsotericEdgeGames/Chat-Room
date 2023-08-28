@@ -117,7 +117,7 @@ function contenidoChat(user){
                     }
                 }else{
                     if (doc.data().mensaje){
-                        contenidoWeb.innerHTML += `<div>Mensaje de ${doc.data().nombre}: ${doc.data().texto}</div>`
+                        contenidoWeb.innerHTML += `<div class = "mensaje otros">Mensaje de ${doc.data().nombre}: ${doc.data().texto}</div>`
                     }
                     else{
                         contenidoWeb.innerHTML += `<div class = "acciones">${doc.data().texto}</div>`

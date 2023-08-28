@@ -1,88 +1,165 @@
 body{
+    margin: 0;
+    padding: 0;
     display: block;
     position: relative;
-    background-color: black;
+    background: rgb(45,54,125);
+    background: linear-gradient(45deg, rgba(45,54,125,1) 1%, rgba(0,0,0,1) 89%);
+    height: 100%;
 }
+.page{
+    display: grid;
+    grid:
+      "usuarioLog mensajes" 1fr
+      / 20% 1fr;
+      min-height: 100%;
+  }
+  .usuarioLog { grid-area: usuarioLog; }
+  .mensajes { grid-area: mensajes; }
+
 .usuarioLog{
+    min-height: 99%;
+}
+.usuarioPos{
+    background: rgb(24, 29, 66);
     position: fixed;
-    display:flex;
+    bottom: .1%;
+    display: flex;
     flex-direction: row;
-    gap: 45px;
-    background-color: black;
     height: auto;
-    width: 100%;
+    width:20%;
 }
-.usuarioLog div button {
-    position: fixed;
-    right: 10px;
-    height: auto;
-    width: auto;
-    font-size: 14vh;
-}
-.usuarioLog div button::first-letter {
-    color: red;
-    
+.usuarioPos img{
+    border-radius: 100%;
+    height: 100px;
 }
 #usuario{
-    font-size: 14vh;
-    text-decoration: underline;
-    text-shadow: red 1px 2px 3px;
+    font-size: x-large;
+    position: relative;
+    left: 5%;
+    margin-top: 10% ;
+    color: white;
+}
+#botonEntrar{
+    position: relative;
+    right: 0%;
 }
 .mensajes{
-    position: relative;
-    top: 100px;
-    display: flex;
-    justify-content: center;
-    background-color: aquamarine;
-    min-height: 500px;
-    max-height: auto;
-    border: 1px solid black;
+    background: rgb(45,54,125);
+    background: linear-gradient(45deg, rgba(45,54,125,1) 1%, rgba(0,0,0,1) 89%);
 }
 #contenidoWeb{
-    position: relative;
-    width: 100%;
-    max-height: 400px;
-    overflow: auto;
-    border: 1px solid black;
+    position: fixed;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: 1s;
+    left: 25%;
+    top: 0%;
+    width: 70%;
+    height: 80%;
+    color: grey;
 }
 #contenidoWeb div{
-    padding-top:10px;
-    padding-left: 15px;
-    text-decoration: underline;
+    font-size: x-large;
+}
+#contenidoWeb .acciones:nth-last-child(1){
+    background-color: black;
+}
+@keyframes entrante {
+    from {        
+        color: black;
+        background-color: white;
+    }
+    to {}
+}
+#contenidoWeb .mensaje:nth-last-child(1){
+    width: auto;
+    animation-name: entrante;
+    animation-duration: 1s;
+    animation-iteration-count: 5;
+    animation-direction:normal;
+    animation-fill-mode: forwards;
 }
 .yo{
-    margin-left:40px ;
-    color: blue;
-    transition: 1s;
+    position: relative;
+    color: rgb(179, 36, 36);
+    margin-left: 5%;
+
+}
+.yo::before{
+    content: "  ."; 
+    width: 29px;
+    height: 27px; 
+    background-image: url(./aegao.jpg);
+    background-size: cover; 
+    position: fixed;
+    border-radius: 100%;
+    margin-left: -3%;
+    margin-bottom: -122%;
+  }
+  .otros::before{
+    content: "  ."; 
+    width: 29px;
+    height: 27px; 
+    background-image: url(./otros.gif);
+    background-size: cover; 
+    position: fixed;
+    border-radius: 100%;
+    margin-left: -3%;
+    margin-bottom: -122%;
+  }
+.otros{
+    position: relative;
 }
 .acciones{
-    color: red;
-    margin-left:45px ;
+    position: relative;
+    color: rgb(255, 255, 255);
+    left: -400%;
+    width: fit-content;
+}
+@keyframes notificacion {
+    from {        
+        color: black;
+        background-color: white;
+        left: 40%;
+    }
+    to {
+        left: 40%;
+    }
+}
+@keyframes notificacion2 {
+    from {left: -400%;}
+    to {
+        left: 40%;
+    }
+}
+.acciones{
+        animation-name: notificacion, notificacion2;
+        animation-duration: .5s,1s;
+        animation-iteration-count: 10,1;
+        animation-direction: normal, normal;
+        animation-fill-mode: backwards,forwards;
 }
 #formulario{
-    position: fixed;
-    bottom: 0;
     display: flex;
     flex-direction: row;
-    width: 90%;
-}
-#nuke{
-    background-color: aliceblue;
-    color: red;
-    font-size: large;
-    text-shadow: black 1px 2px 2px;
-    background: url(data:image/png;base64,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) no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-form input{
-    height: 90px;
-    width: 100%;
-}
-.accionesOff{
     position: fixed;
-    top: 50%;
-    right: 20%;
+    bottom: .1%;
+    left: 25%;
+    width: 70%; 
+}
+.escritura{
+    height:75px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.062);
+    border: none;
+    font-size: xx-large;
+}
+.enviar{
+    background-color: rgba(255, 255, 255, 0.062);
+}
+.enviar:hover{
+    filter: invert();
 }
 @keyframes blanc {
     from {
