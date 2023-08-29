@@ -201,7 +201,7 @@ body{
         animation-play-state: paused!important;
         pointer-events: none!important;
 }
-@media screen and (max-width: 600px) and (max-height:640px) {
+@media screen and (max-width: 600px) and (max-height:1000px) {
     .page{
         display: grid;
         grid:
@@ -251,6 +251,5 @@ body{
     }
     #contenidoWeb div{
         font-size: medium;
-        width: 230px;
     }
 }
